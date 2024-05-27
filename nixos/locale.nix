@@ -1,6 +1,4 @@
-{...}:
-{
-  
+{...}: {
   time.timeZone = "Europe/Copenhagen";
 
   console.keyMap = "dk-latin1";

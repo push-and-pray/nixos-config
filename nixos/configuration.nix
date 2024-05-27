@@ -25,16 +25,15 @@
     enable = true;
   };
 
-
   environment.systemPackages = with pkgs; [
     qt6.qtwayland
     libsForQt5.qt5.qtwayland
   ];
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
+    extraSpecialArgs = {inherit inputs outputs;};
     users = {
-      julius = import ../home-manager/home.nix;
+      julius = import ../home-manager;
     };
   };
 

@@ -1,5 +1,4 @@
-{pkgs, ...}:
-{
+{pkgs, ...}: {
   programs.zsh.enable = true;
 
   users.users = {
@@ -10,6 +9,4 @@
       shell = pkgs.zsh;
     };
   };
-
-  
 }

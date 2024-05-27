@@ -1,5 +1,8 @@
-{inputs, pkgs, ...}:
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
   ];
@@ -26,17 +29,16 @@
 
       lsp = {
         enable = true;
-	servers = {
+        servers = {
           pyright.enable = true;
-	  nil_ls.enable = true;
-	};
+          nil_ls.enable = true;
+        };
       };
       lsp-format.enable = true;
 
       telescope.enable = true;
 
       lualine.enable = true;
-
     };
   };
 }

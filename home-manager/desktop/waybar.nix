@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  services.blueman-applet.enable = true;
+  services.network-manager-applet.enable = true;
+  services.udiskie.enable = true;
+
   programs.waybar = {
     enable = true;
     settings = [

@@ -1,10 +1,9 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     brightnessctl
     playerctl
+    lxqt.lxqt-policykit
+    wl-clipboard
   ];
 
   services.hyprpaper = {
@@ -27,13 +26,13 @@
     settings = {
       general = {
         disable_loading_bar = true;
-	hide_cursor = true;
+        hide_cursor = true;
       };
       background = [
         {
           path = "screenshot";
-	  blur_passes = 3;
-	  blue_size = 8;
+          blur_passes = 3;
+          blue_size = 8;
         }
       ];
       input-field = [
@@ -52,28 +51,28 @@
     settings = {
       general = {
         lock_cmd = "pidof hyprlock || hyprlock";
-	before_sleep_cmd = "loginctl lock-session";
-	after_sleep_cmd = "hyprctl dispatch dpms on";
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
       };
       listener = [
         {
           timeout = 100;
-	  on-timeout = "brightnessctl -s set 2%";
-	  on-resume = "brightnessctl -r";
-	}
+          on-timeout = "brightnessctl -s set 2%";
+          on-resume = "brightnessctl -r";
+        }
         {
           timeout = 230;
-	  on-timeout = "notify-send 'Locking screen soon...'";
-	}
-	{
+          on-timeout = "notify-send 'Locking screen soon...'";
+        }
+        {
           timeout = 240;
-	  on-timeout = "loginctl lock-session";
-	}
-	{
+          on-timeout = "loginctl lock-session";
+        }
+        {
           timeout = 300;
-	  on-timeout = "hyprctl dispatch dpms off";
-	  on-resume = "hyprctl dispatch dpms on";
-	}
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
       ];
     };
   };
@@ -96,8 +95,7 @@
         "SUPER,Return,exec,kitty"
         "SUPER,Space,exec,rofi -show drun"
         "SUPER, V, exec, clipman pick -t rofi"
-	"SUPER, L, exec, hyprlock"
-
+        "SUPER, L, exec, hyprlock"
 
         ",XF86MonBrightnessDown,exec,brightnessctl set 20%-"
         ",XF86MonBrightnessUp,exec,brightnessctl set +20%"

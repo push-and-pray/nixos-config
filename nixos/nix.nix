@@ -5,8 +5,7 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   nixpkgs = {
     overlays = [
       outputs.overlays.additions

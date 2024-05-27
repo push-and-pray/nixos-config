@@ -8,7 +8,7 @@
 
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    
+
     stylix.url = "github:danth/stylix";
 
     nixvim = {
@@ -45,11 +45,10 @@
       ares = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-	  inputs.stylix.nixosModules.stylix
+          inputs.stylix.nixosModules.stylix
           ./nixos/configuration.nix
         ];
       };
     };
-
   };
 }
