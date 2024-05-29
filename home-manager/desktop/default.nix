@@ -8,6 +8,7 @@
 
   home.packages = with pkgs; [
     spotify
+    signal-desktop
   ];
 
   programs.firefox.enable = true;
