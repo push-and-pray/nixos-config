@@ -23,6 +23,13 @@
       }
     ];
 
+    globals.mapleader = " ";
+    keymaps = [
+      {
+        key = "<leader>e";
+        action = "<CMD>NvimTreeToggle<CR>";
+      }
+    ];
     opts = {
       number = true;
       relativenumber = true;
@@ -42,7 +49,18 @@
         indent = true;
       };
 
-      lightline.enable = true;
+      bufferline = {
+        enable = true;
+        offsets = [
+          {
+            filetype = "NvimTree";
+            text = "NvimTree";
+            #text_align = "left";
+            #seperator = true;
+          }
+        ];
+      };
+      lualine.enable = true;
 
       lsp = {
         enable = true;
@@ -53,7 +71,6 @@
       };
       lsp-lines = {
         enable = true;
-        currentLine = true;
       };
 
       cmp = {
@@ -82,9 +99,6 @@
         enable = true;
         enableLspFormat = true;
         sources = {
-          diagnostics = {
-            pylint.enable = true;
-          };
           formatting = {
             alejandra.enable = true;
             black.enable = true;
@@ -92,7 +106,22 @@
         };
       };
 
-      telescope.enable = true;
+      fidget = {
+        enable = true;
+      };
+
+      nvim-autopairs.enable = true;
+      nvim-tree = {
+        enable = true;
+        autoClose = true;
+      };
+
+      telescope = {
+        enable = true;
+        keymaps = {
+          "<leader>fg" = "live_grep";
+        };
+      };
     };
   };
 }
