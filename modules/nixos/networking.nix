@@ -16,9 +16,14 @@
   };
 
   config = lib.mkIf config.modules.networking.enable {
+
     networking.hostName = config.modules.networking.hostName;
     networking.networkmanager.enable = true;
     services.twingate.enable = true;
     services.resolved.enable = true;
+
+    hardware.bluetooth.enable = true;
+    hardware.bluetooth.powerOnBoot = true;
+    services.blueman.enable = true;
   };
 }

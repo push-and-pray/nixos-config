@@ -1,6 +1,37 @@
-# Add your reusable home-manager modules to this directory, on their own file (https://nixos.wiki/wiki/Module).
-# These should be stuff you would like to share with others, not your personal configurations.
 {
-  # List your module files here
-  # my-module = import ./my-module.nix;
+  outputs,
+  config,
+  osConfig,
+  ...
+}: {
+  imports = [
+    ./desktop
+    ./shell
+  ];
+
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+    ];
+    config = {
+      allowUnfree = true;
+    };
+  };
+
+  home = {
+    username = "julius";
+    homeDirectory = "/home/julius";
+  };
+
+  programs.home-manager.enable = true;
+
+  systemd.user.startServices = "sd-switch";
+
+  services.blueman-applet.enable = osConfig.services.blueman.enable;
+  services.network-manager-applet.enable = osConfig.networking.networkmanager.enable;
+  services.udiskie.enable = osConfig.services.udisks2.enable;
+
+  home.stateVersion = "23.11";
 }

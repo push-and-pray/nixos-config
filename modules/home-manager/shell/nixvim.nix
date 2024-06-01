@@ -29,6 +29,10 @@
         key = "<leader>e";
         action = "<CMD>NvimTreeToggle<CR>";
       }
+      {
+        key = "<leader>o";
+        action = "<CMD>NvimTreeFocus<CR>";
+      }
     ];
     opts = {
       number = true;
