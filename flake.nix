@@ -37,16 +37,18 @@
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     overlays = import ./overlays {inherit inputs;};
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
 
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       ares = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          inherit inputs outputs;
+          hostname = "ares";
+        };
         modules = [
           inputs.stylix.nixosModules.stylix
-          ./nixos/configuration.nix
+          ./modules/nixos
+          ./hosts/ares
         ];
       };
     };

@@ -1,4 +1,8 @@
-{...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   networking.hostName = "ares";
   networking.networkmanager.enable = true;
   services.twingate.enable = true;

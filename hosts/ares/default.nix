@@ -6,14 +6,11 @@
 }: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-
     ./stylix.nix
     ./nix.nix
-    ./bootloader.nix
     ./locale.nix
     ./media.nix
     ./users.nix
-    ./networking.nix
     ./greetd.nix
     ./hardware-configuration.nix
   ];
@@ -35,7 +32,7 @@
   home-manager = {
     extraSpecialArgs = {inherit inputs outputs;};
     users = {
-      julius = import ../home-manager;
+      julius = import ../../home-manager;
     };
   };
 

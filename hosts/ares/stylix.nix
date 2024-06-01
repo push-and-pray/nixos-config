@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   stylix = {
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-    image = ../res/wallpaper.png;
+    image = ../../res/wallpaper.png;
 
     cursor = {
       package = pkgs.simp1e-cursors;
