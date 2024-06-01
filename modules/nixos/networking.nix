@@ -1,17 +1,17 @@
 {
   lib,
   config,
+  hostname,
   ...
 }: {
   options = {
-    systemConfig.networking.enable = lib.mkEnableOption {
+    systemConfig.networking.enable = lib.mkOption {
+      type = lib.types.bool;
       default = true;
-      description = "Enable networking";
     };
     systemConfig.networking.hostName = lib.mkOption {
       type = lib.types.str;
-      default = "ares";
-      description = "Hostname for the system";
+      default = hostname;
     };
   };
 
@@ -22,4 +22,3 @@
     services.resolved.enable = true;
   };
 }
-
