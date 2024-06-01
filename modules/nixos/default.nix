@@ -13,6 +13,7 @@
     ./users.nix
     ./greetd.nix
     ./hyprland.nix
+    ./zram.nix
   ];
 
 
