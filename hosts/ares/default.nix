@@ -6,7 +6,6 @@
 }: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    ./stylix.nix
     ./nix.nix
     ./locale.nix
     ./media.nix
