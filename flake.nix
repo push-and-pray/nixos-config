@@ -31,7 +31,7 @@
       };
       modules = [
         inputs.stylix.nixosModules.stylix
-        ./modules/nixos
+        ./system
         ./hosts/${hostname}
       ];
     };

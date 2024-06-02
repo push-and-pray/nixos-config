@@ -75,6 +75,7 @@
       };
       lsp-lines = {
         enable = true;
+        currentLine = true;
       };
 
       cmp = {

@@ -11,9 +11,11 @@
   home-manager = {
     extraSpecialArgs = {inherit inputs outputs;};
     users = {
-      julius = import ../../modules/home-manager;
+      julius = import ../../home/julius;
     };
   };
+
+  networking.firewall.enable = false;
 
   system.stateVersion = "23.11";
 }

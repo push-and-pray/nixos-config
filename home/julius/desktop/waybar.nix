@@ -1,6 +1,6 @@
 {osConfig, ...}: {
   programs.waybar = {
-    enable = osConfig.modules.hyprland.enable;
+    enable = true;
     settings = [
       {
         spacing = 10;

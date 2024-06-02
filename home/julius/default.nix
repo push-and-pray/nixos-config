@@ -1,6 +1,5 @@
 {
   outputs,
-  config,
   osConfig,
   ...
 }: {
@@ -27,7 +26,6 @@
 
   programs.home-manager.enable = true;
 
-  systemd.user.startServices = "sd-switch";
 
   services.blueman-applet.enable = osConfig.services.blueman.enable;
   services.network-manager-applet.enable = osConfig.networking.networkmanager.enable;
