@@ -15,7 +15,7 @@
     };
   };
 
-  programs.hyprland.monitors = ["eDP-1,preferred,auto,2"];
+  programs.hyprland.monitors = [",preferred,auto,2"];
 
   networking.firewall.enable = false;
 
