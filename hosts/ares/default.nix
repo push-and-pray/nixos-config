@@ -15,6 +15,8 @@
     };
   };
 
+  programs.hyprland.monitors = ["eDP-1,preferred,auto,2"];
+
   networking.firewall.enable = false;
 
   system.stateVersion = "23.11";
