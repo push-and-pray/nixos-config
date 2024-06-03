@@ -28,10 +28,12 @@
       {
         key = "<leader>e";
         action = "<CMD>NvimTreeToggle<CR>";
+        options.desc = "Toggle Filetree";
       }
       {
         key = "<leader>o";
         action = "<CMD>NvimTreeFocus<CR>";
+        options.desc = "Focus Filetree";
       }
     ];
     opts = {
@@ -58,7 +60,7 @@
         offsets = [
           {
             filetype = "NvimTree";
-            text = "NvimTree";
+            text = "Files";
             #text_align = "left";
             #seperator = true;
           }
@@ -76,6 +78,14 @@
       lsp-lines = {
         enable = true;
         currentLine = true;
+      };
+
+      which-key = {
+        enable = true;
+        registrations = {
+          "<leader>f" = "Telescope";
+          #"<leader>fg" = "Live Grep";
+        };
       };
 
       cmp = {
@@ -124,7 +134,18 @@
       telescope = {
         enable = true;
         keymaps = {
-          "<leader>fg" = "live_grep";
+          "<leader>fg" = {
+            action = "live_grep";
+            options = {
+              desc = "Live Grep";
+            };
+          };
+          "<leader>ff" = {
+            action = "git_files";
+            options = {
+              desc = "Search Git Files";
+            };
+          };
         };
       };
     };
