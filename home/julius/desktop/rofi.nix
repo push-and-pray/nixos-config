@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  lib,
+  osConfig,
+  ...
+}: {
   home.packages = with pkgs; [
     rofi-wayland
   ];

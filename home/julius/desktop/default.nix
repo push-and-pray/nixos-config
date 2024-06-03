@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   imports = [
-    ./rofi.nix
     ./hyprland.nix
     ./waybar.nix
     ./mako.nix
+    ./rofi.nix
   ];
 
   home.packages = with pkgs; [

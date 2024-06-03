@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  osConfig,
+  ...
+}: {
   home.packages = with pkgs; [
     brightnessctl
     playerctl
@@ -14,7 +18,7 @@
         "/etc/nixos/res/wallpaper.png"
       ];
       wallpaper = [
-        "eDP-1,/etc/nixos/res/wallpaper.png"
+        ",/etc/nixos/res/wallpaper.png"
       ];
       splash = true;
       ipc = false;
@@ -81,6 +85,7 @@
     enable = true;
     systemd.variables = ["--all"];
     settings = {
+      monitor = osConfig.programs.hyprland.monitors;
       input = {
         kb_layout = "dk";
       };
