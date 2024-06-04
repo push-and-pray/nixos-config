@@ -43,6 +43,7 @@
 
     nixosConfigurations = {
       ares = makeNixosConfig "ares";
+      zeus = makeNixosConfig "zeus";
     };
   };
 }
