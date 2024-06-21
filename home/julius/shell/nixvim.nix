@@ -14,6 +14,7 @@
 
   programs.nixvim = {
     enable = true;
+    luaLoader.enable = true;
     extraPlugins = with pkgs.vimPlugins; [
       {
         plugin = guess-indent-nvim;
@@ -27,12 +28,12 @@
     keymaps = [
       {
         key = "<leader>e";
-        action = "<CMD>NvimTreeToggle<CR>";
+        action = "<CMD>Neotree toggle<CR>";
         options.desc = "Toggle Filetree";
       }
       {
         key = "<leader>o";
-        action = "<CMD>NvimTreeFocus<CR>";
+        action = "<CMD>Neotree focus<CR>";
         options.desc = "Focus Filetree";
       }
     ];
@@ -42,6 +43,7 @@
       expandtab = true;
       copyindent = true;
       breakindent = true;
+      conceallevel = 1;
     };
     defaultEditor = true;
     clipboard = {
@@ -50,6 +52,10 @@
     };
 
     plugins = {
+      alpha = {
+        enable = true;
+        theme = "dashboard";
+      };
       treesitter = {
         enable = true;
         indent = true;
@@ -59,7 +65,7 @@
         enable = true;
         offsets = [
           {
-            filetype = "NvimTree";
+            filetype = "neo-tree";
             text = "Files";
             #text_align = "left";
             #seperator = true;
@@ -72,7 +78,7 @@
         enable = true;
         servers = {
           pyright.enable = true;
-          nil_ls.enable = true;
+          nil-ls.enable = true;
         };
       };
       lsp-lines = {
@@ -125,10 +131,11 @@
         enable = true;
       };
 
+
       nvim-autopairs.enable = true;
-      nvim-tree = {
+      neo-tree = {
         enable = true;
-        autoClose = true;
+        closeIfLastWindow = true;
       };
 
       telescope = {
