@@ -4,6 +4,7 @@
     ./waybar.nix
     ./mako.nix
     ./rofi.nix
+    ./ags
   ];
 
   home.packages = with pkgs; [
