@@ -4,12 +4,12 @@
     ./waybar.nix
     ./mako.nix
     ./rofi.nix
-    ./ags
   ];
 
   home.packages = with pkgs; [
     spotify
     signal-desktop
+    unstable.obsidian
   ];
 
   programs.firefox.enable = true;
