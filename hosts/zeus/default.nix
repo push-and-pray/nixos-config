@@ -21,9 +21,17 @@
   };
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
-    # Modesetting is required.
     modesetting.enable = true;
   };
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+    GBM_BACKEND = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  };
+
+  services.onedrive.enable = true;
+
   programs.hyprland.monitors = [
     "DP-2,2560x1440@144,0x0,1"
     "HDMI-A-2, 2560x1440@144, -1440x-720,1,transform,1"
