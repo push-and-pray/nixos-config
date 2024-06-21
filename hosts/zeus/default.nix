@@ -25,10 +25,11 @@
     modesetting.enable = true;
   };
   programs.hyprland.monitors = [
-    "DP-2,preferred,1440x720,1"
-    "HDMI-A-2, prefered, 0x0,1,transform,1"
+    "DP-2,2560x1440@144,0x0,1"
+    "HDMI-A-2, 2560x1440@144, -1440x-720,1,transform,1"
     "Unknown-1,disable"
   ];
+  networking.firewall.enable = false;
   boot.loader.grub.useOSProber = true;
   system.stateVersion = "23.11";
 }

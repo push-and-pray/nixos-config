@@ -13,8 +13,12 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
-  let
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
     inherit (self) outputs;
     systems = [
       "aarch64-linux"
@@ -25,21 +29,22 @@
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
 
-    makeNixosConfig = hostname: nixpkgs.lib.nixosSystem {
-      specialArgs = {
-        inherit inputs outputs hostname;
+    makeNixosConfig = hostname:
+      nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs hostname;
+        };
+        modules = [
+          inputs.stylix.nixosModules.stylix
+          ./system
+          ./hosts/${hostname}
+        ];
       };
-      modules = [
-        inputs.stylix.nixosModules.stylix
-        ./system
-        ./hosts/${hostname}
-      ];
-    };
   in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-    overlays = import ./overlays { inherit inputs; };
+    overlays = import ./overlays {inherit inputs;};
 
     nixosConfigurations = {
       ares = makeNixosConfig "ares";

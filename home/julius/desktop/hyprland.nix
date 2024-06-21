@@ -36,7 +36,7 @@
         {
           path = "screenshot";
           blur_passes = 3;
-          blue_size = 8;
+          blur_size = 8;
         }
       ];
       input-field = [
