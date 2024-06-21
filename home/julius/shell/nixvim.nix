@@ -36,6 +36,11 @@
         action = "<CMD>Neotree focus<CR>";
         options.desc = "Focus Filetree";
       }
+      {
+        key = "<leader>gg";
+        action = "<CMD>LazyGit<CR>";
+        options.desc = "LazyGit";
+      }
     ];
     opts = {
       number = true;
@@ -130,6 +135,8 @@
       fidget = {
         enable = true;
       };
+
+      lazygit.enable = true;
 
 
       nvim-autopairs.enable = true;
