@@ -57,10 +57,6 @@
     };
 
     plugins = {
-      alpha = {
-        enable = true;
-        theme = "dashboard";
-      };
       treesitter = {
         enable = true;
         indent = true;
@@ -137,7 +133,6 @@
       };
 
       lazygit.enable = true;
-
 
       nvim-autopairs.enable = true;
       neo-tree = {
