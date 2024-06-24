@@ -13,4 +13,6 @@
       };
     };
   };
+  boot.kernelParams = [ "console=tty1" ];
+  services.greetd.vt = 2;
 }
