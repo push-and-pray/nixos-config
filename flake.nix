@@ -17,6 +17,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-wsl = {
+    	url = "github:nix-community/NixOS-WSL/main";
+      	inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = {
@@ -53,8 +58,43 @@
     overlays = import ./overlays {inherit inputs;};
 
     nixosConfigurations = {
-      ares = makeNixosConfig "ares";
-      zeus = makeNixosConfig "zeus";
+      ares = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+          hostname = "ares";
+        };
+        modules = [
+          inputs.stylix.nixosModules.stylix
+          ./system
+          ./hosts/ares
+        ];
+      };
+      zeus = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+          hostname = "zeus";
+        };
+        modules = [
+          inputs.stylix.nixosModules.stylix
+          ./system
+          ./hosts/zeus
+        ];
+      };
+
+      hermes = nixpkgs.lib.nixosSystem {
+      	system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs outputs;
+          hostname = "hermes";
+        };
+        modules = [
+          inputs.stylix.nixosModules.stylix
+	  inputs.nixos-wsl.nixosModules.default
+	  inputs.home-manager.nixosModules.home-manager
+
+          ./hosts/hermes
+        ];
+      };
     };
   };
 }
