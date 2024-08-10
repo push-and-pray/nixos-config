@@ -23,13 +23,13 @@
           {name = "nvim_lsp";}
           {name = "emoji";}
           {
-	    name = "path";
-	    keywordLength = 3;
-	  }
+            name = "path";
+            keywordLength = 3;
+          }
           {
-	    name = "buffer"; 
-	    keywordLength = 3;
-	  }
+            name = "buffer";
+            keywordLength = 3;
+          }
         ];
 
         window = {
@@ -56,6 +56,5 @@
     lspkind = {
       enable = true;
     };
-
   };
 }
