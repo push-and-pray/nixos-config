@@ -2,6 +2,7 @@
   hostname,
   pkgs,
   inputs,
+  outputs,
   ...
 }: {
   time.timeZone = "Europe/Copenhagen";
@@ -19,10 +20,9 @@
     hashedPassword = "$6$NFybOOj2fgSavlzj$mfDprTefkFxZYS4yjxgw0QNh0cU3S0QaUhURGucVwfJ7tydVgVC9cvb9CH0kN0zxu98H4g2dm4Xg3hVDrH5pD1";
   };
 
-  home-manager.users.julius = {
-    imports = [
-      ./home.nix
-    ];
+  home-manager = {
+    extraSpecialArgs = {inherit inputs outputs;};
+    users.julius = import ./home.nix;
   };
 
   system.stateVersion = "24.05";

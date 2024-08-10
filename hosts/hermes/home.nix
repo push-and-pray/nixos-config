@@ -1,14 +1,17 @@
 {
   pkgs,
+  inputs,
   ...
 }: {
   home.stateVersion = "24.05";
 
+  imports = [
+    ./nixvim
+  ];
+
   home = {
     username = "julius";
     homeDirectory = "/home/julius";
-
-    sessionVariables.EDITOR = "nvim";
 
     packages = with pkgs; [
       jq
