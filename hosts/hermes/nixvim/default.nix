@@ -8,8 +8,8 @@
     ./cmp.nix
     ./git.nix
     ./lsp.nix
-    ./bufferline.nix
     ./telescope.nix
+    ./extraplugins.nix
   ];
 
   programs.nixvim = {
@@ -56,12 +56,33 @@
     };
 
     plugins = {
-      lualine.enable = true;
+      harpoon = {
+        enable = true;
+        enableTelescope = true;
+        keymaps = {
+          addFile = "<leader>a";
+          toggleQuickMenu = "<leader>hh";
+          navNext = "<leader>hn";
+          navPrev = "<leader>hp";
+        };
+      };
+      toggleterm = {
+        enable = true;
+        settings = {
+          open_mapping = "[[<C-t>]]";
+        };
+      };
+      lightline.enable = true;
 
       treesitter = {
         enable = true;
-        indent = true;
+        settings = {
+          indent.enable = true;
+          highlight.enable = true;
+        };
       };
+
+      web-devicons.enable = true;
 
       comment.enable = true;
       nvim-colorizer.enable = true;
@@ -70,9 +91,11 @@
       notify.enable = true;
 
       hardtime = {
-        enable = true;
-        enabled = true;
-        disableMouse = false;
+        enable = false;
+        settings = {
+          enabled = true;
+          disableMouse = false;
+        };
       };
     };
   };

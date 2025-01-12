@@ -10,6 +10,7 @@
   networking.hostName = "${hostname}";
 
   programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
 
   users.users.julius = {
     isNormalUser = true;
@@ -30,9 +31,21 @@
   wsl = {
     enable = true;
     defaultUser = "julius";
+    useWindowsDriver = true;
+  };
+
+  hardware.graphics = {
+    enable = true;
+
+    extraPackages = with pkgs; [
+      mesa.drivers
+      libvdpau-va-gl
+      vaapiVdpau
+    ];
   };
 
   virtualisation.docker = {
+    package = pkgs.unstable.docker;
     enable = true;
     enableOnBoot = true;
     autoPrune.enable = true;
@@ -50,6 +63,9 @@
       nixpkgs = {
         flake = inputs.nixpkgs;
       };
+      unstable = {
+        flake = inputs.nixpkgs-unstable;
+      };
     };
 
     nixPath = [
@@ -58,7 +74,6 @@
       "/nix/var/nix/profiles/per-user/root/channels"
     ];
 
-    package = pkgs.nixFlakes;
     extraOptions = ''experimental-features = nix-command flakes'';
 
     gc = {
@@ -66,11 +81,13 @@
       options = "--delete-older-than 7d";
     };
   };
+
+  nixpkgs.overlays = [outputs.overlays.unstable-packages];
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
 
-    image = /mnt/c/Users/juliu/OneDrive/Billeder/Wallpapers/gruvbox_image31.png;
+    image = ../../bg.png;
 
     fonts = {
       monospace = {

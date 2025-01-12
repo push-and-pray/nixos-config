@@ -15,11 +15,14 @@
 
     packages = with pkgs; [
       jq
+      wget
       killall
       ripgrep
       tree
       unzip
       zip
+      kubectl
+      kubernetes-helm
     ];
   };
   programs = {
@@ -33,11 +36,15 @@
 
     git = {
       enable = true;
-      userEmail = "62392537+ketamin00@users.noreply.github.com";
-      userName = "ketamin00";
+      userEmail = "62392537+push-and-pray@users.noreply.github.com";
+      userName = "push-and-pray";
+      delta.enable = true;
     };
 
-    lazygit.enable = true;
+    lazygit = {
+      enable = true;
+    };
+
     zsh = {
       enable = true;
       initExtra = ''

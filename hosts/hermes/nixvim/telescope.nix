@@ -4,6 +4,9 @@
     extensions = {
       file-browser = {
         enable = true;
+        settings = {
+          hijack_netrw = true;
+        };
       };
     };
     settings = {
@@ -54,6 +57,12 @@
         };
       };
       "<leader>fb" = {
+        action = "buffers";
+        options = {
+          desc = "Buffers";
+        };
+      };
+      "<leader>bf" = {
         action = "buffers";
         options = {
           desc = "Buffers";

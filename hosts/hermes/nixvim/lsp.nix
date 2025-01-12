@@ -1,11 +1,13 @@
 {...}: {
   programs.nixvim = {
     plugins = {
+      otter.enable = true;
       lsp = {
         enable = true;
         servers = {
           pyright.enable = true;
-          nil-ls.enable = true;
+          nil_ls.enable = true;
+          gopls.enable = true;
         };
         keymaps = {
           silent = true;
@@ -61,6 +63,9 @@
           formatting = {
             alejandra.enable = true;
             prettier.enable = true;
+            black.enable = true;
+            isort.enable = true;
+            gofmt.enable = true;
           };
         };
       };

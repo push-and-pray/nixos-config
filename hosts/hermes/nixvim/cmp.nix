@@ -21,7 +21,6 @@
 
         sources = [
           {name = "nvim_lsp";}
-          {name = "emoji";}
           {
             name = "path";
             keywordLength = 3;
@@ -46,13 +45,9 @@
     cmp-nvim-lsp = {
       enable = true;
     };
-    cmp-emoji = {
-      enable = true;
-    };
     cmp-path = {
       enable = true;
     };
-
     lspkind = {
       enable = true;
     };
