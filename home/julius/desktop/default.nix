@@ -10,6 +10,7 @@
     spotify
     signal-desktop
     unstable.obsidian
+    keepassxc
   ];
 
   programs.firefox.enable = true;
