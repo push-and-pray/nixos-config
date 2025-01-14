@@ -2,7 +2,7 @@
   imports = [
     ./clipman.nix
     ./git.nix
-    ./nixvim.nix
+    ./nixvim
     ./zsh.nix
     ./direnv.nix
   ];

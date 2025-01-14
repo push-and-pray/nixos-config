@@ -2,7 +2,7 @@
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-    image = /etc/nixos/res/wallpaper.png;
+    image = ../bg.png;
 
     cursor = {
       package = pkgs.simp1e-cursors;
