@@ -7,6 +7,7 @@
 
   imports = [
     ./nixvim
+    ../../home/julius/shell/nixvim
   ];
 
   home = {
