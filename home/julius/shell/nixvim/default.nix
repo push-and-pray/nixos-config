@@ -56,14 +56,11 @@
     };
 
     plugins = {
-      harpoon = {
+      marks = {
         enable = true;
-        enableTelescope = true;
-        keymaps = {
-          addFile = "<leader>a";
-          toggleQuickMenu = "<leader>hh";
-          navNext = "<leader>hn";
-          navPrev = "<leader>hp";
+        mappings = {
+          "previous" = "<leader>,";
+          "next" = "<leader>.";
         };
       };
       toggleterm = {
@@ -90,13 +87,23 @@
       nvim-autopairs.enable = true;
       notify.enable = true;
 
-      hardtime = {
-        enable = false;
-        settings = {
-          enabled = true;
-          disableMouse = false;
+      mini = {
+        enable = true;
+        modules = {
+          files = {
+            mappings = {
+              synchronize = "<leader><leader>";
+            };
+          };
         };
       };
     };
+    keymaps = [
+      {
+        action = "<cmd>lua MiniFiles.open()<CR>";
+        key = "<leader><leader>";
+        options.desc = "Files";
+      }
+    ];
   };
 }

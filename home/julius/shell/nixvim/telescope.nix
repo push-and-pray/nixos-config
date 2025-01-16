@@ -1,14 +1,6 @@
 {...}: {
   programs.nixvim.plugins.telescope = {
     enable = true;
-    extensions = {
-      file-browser = {
-        enable = true;
-        settings = {
-          hijack_netrw = true;
-        };
-      };
-    };
     settings = {
       defaults = {
         layout_config = {
@@ -20,16 +12,10 @@
       };
     };
     keymaps = {
-      "<leader><space>" = {
-        action = "file_browser";
-        options = {
-          desc = "File Browser";
-        };
-      };
       "<leader>/" = {
         action = "live_grep";
         options = {
-          desc = "Grep (root dir)";
+          desc = "Grep";
         };
       };
       "<leader>:" = {
@@ -38,16 +24,10 @@
           desc = "Command History";
         };
       };
-      "<leader>ff" = {
-        action = "file_browser";
-        options = {
-          desc = "File Browser";
-        };
-      };
       "<leader>fr" = {
         action = "live_grep";
         options = {
-          desc = "Find text";
+          desc = "Grep";
         };
       };
       "<leader>fo" = {
