@@ -6,8 +6,6 @@
         enable = true;
         inlayHints = true;
         servers = {
-          pyright.enable = true;
-          nil_ls.enable = true;
           gopls.enable = true;
           zls.enable = true;
         };
@@ -70,20 +68,15 @@
 
         sources = {
           code_actions = {
-            statix.enable = true;
             gitrebase.enable = true;
             gitsigns.enable = true;
           };
           diagnostics = {
-            statix.enable = true;
             yamllint.enable = true;
             trivy.enable = true;
           };
           formatting = {
-            alejandra.enable = true;
             prettier.enable = true;
-            black.enable = true;
-            isort.enable = true;
             gofmt.enable = true;
           };
         };
@@ -93,33 +86,6 @@
       fidget.enable = true;
 
       lsp-format.enable = true;
-
-      conform-nvim = {
-        enable = true;
-        settings = {
-          formatters_by_ft.rust = ["rustfmt"];
-          format_on_save = {
-            lsp_fallback = "fallback";
-            timeout_ms = 500;
-          };
-          notify_on_error = true;
-        };
-      };
-      rustaceanvim = {
-        enable = true;
-        settings = {
-          tools.enable_clippy = true;
-          server = {
-            default_settings = {
-              inlayHints = {lifetimeElisionHints = {enable = "always";};};
-              rust-analyzer = {
-                cargo = {allFeatures = true;};
-                check = {command = "clippy";};
-              };
-            };
-          };
-        };
-      };
     };
   };
 }

@@ -5,8 +5,8 @@
 
       settings = {
         autoEnableSources = true;
-        experimental = {
-          ghost_text = true;
+        perfomance = {
+          debounce = 150;
         };
 
         mapping = {
@@ -23,31 +23,15 @@
           {name = "nvim_lsp";}
           {
             name = "path";
-            keywordLength = 3;
           }
           {
             name = "buffer";
             keywordLength = 3;
           }
         ];
-
-        window = {
-          completion = {
-            border = "solid";
-          };
-          documentation = {
-            border = "solid";
-          };
-        };
       };
     };
 
-    cmp-nvim-lsp = {
-      enable = true;
-    };
-    cmp-path = {
-      enable = true;
-    };
     lspkind = {
       enable = true;
     };

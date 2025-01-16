@@ -10,6 +10,7 @@
     ./lsp.nix
     ./telescope.nix
     ./extraplugins.nix
+    ./languages
   ];
 
   programs.nixvim = {
