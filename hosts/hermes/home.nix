@@ -6,7 +6,6 @@
   home.stateVersion = "24.05";
 
   imports = [
-    ./nixvim
     ../../home/julius/shell/nixvim
   ];
 
