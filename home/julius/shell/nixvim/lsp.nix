@@ -82,7 +82,6 @@
         };
       };
 
-      trouble.enable = true;
       fidget.enable = true;
 
       lsp-format.enable = true;

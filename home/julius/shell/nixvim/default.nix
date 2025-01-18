@@ -57,6 +57,7 @@
     };
 
     plugins = {
+      render-markdown.enable = true;
       marks = {
         enable = true;
         mappings = {
