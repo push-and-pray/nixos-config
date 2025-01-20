@@ -14,6 +14,13 @@
   ];
 
   programs.nixvim = {
+    performance.byteCompileLua = {
+      enable = true;
+      initLua = true;
+      configs = true;
+      plugins = true;
+      nvimRuntime = true;
+    };
     enable = true;
     defaultEditor = true;
     globals.mapleader = " ";
