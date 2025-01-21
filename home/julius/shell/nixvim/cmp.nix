@@ -21,9 +21,8 @@
 
         sources = [
           {name = "nvim_lsp";}
-          {
-            name = "path";
-          }
+          {name = "luasnip";}
+          {name = "path";}
           {
             name = "buffer";
             keywordLength = 3;
