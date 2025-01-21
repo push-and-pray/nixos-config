@@ -72,8 +72,6 @@
             gitsigns.enable = true;
           };
           diagnostics = {
-            yamllint.enable = true;
-            trivy.enable = true;
           };
           formatting = {
             prettier.enable = true;
