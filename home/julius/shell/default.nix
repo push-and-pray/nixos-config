@@ -1,8 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  system,
+  ...
+}: {
   imports = [
     ./clipman.nix
     ./git.nix
-    ./nixvim
     ./zsh.nix
     ./direnv.nix
   ];
@@ -11,6 +15,7 @@
     kubectl
     kubeseal
     fluxcd
+    inputs.nixvim.packages.${system}.default
   ];
 
   programs.kitty.enable = true;

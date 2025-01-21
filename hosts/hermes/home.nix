@@ -5,10 +5,6 @@
 }: {
   home.stateVersion = "24.05";
 
-  imports = [
-    ../../home/julius/shell/nixvim
-  ];
-
   home = {
     username = "julius";
     homeDirectory = "/home/julius";
@@ -23,6 +19,7 @@
       zip
       kubectl
       kubernetes-helm
+      inputs.nixvim.packages."x86_64-linux".default
     ];
   };
   programs = {
