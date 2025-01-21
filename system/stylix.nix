@@ -15,6 +15,14 @@
         package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
         name = "JetBrainsMono Nerd Font Mono";
       };
+      serif = {
+        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+        name = "JetBrainsMono Nerd Font";
+      };
+      sansSerif = {
+        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+        name = "JetBrainsMono Nerd Font";
+      };
       emoji = {
         package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
