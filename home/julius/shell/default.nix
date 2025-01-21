@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
     kubectl
     kubeseal
+    fluxcd
   ];
 
   programs.kitty.enable = true;
