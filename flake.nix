@@ -39,18 +39,6 @@
       "x86_64-darwin"
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
-
-    makeNixosConfig = hostname:
-      nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs hostname;
-        };
-        modules = [
-          inputs.stylix.nixosModules.stylix
-          ./system
-          ./hosts/${hostname}
-        ];
-      };
   in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
