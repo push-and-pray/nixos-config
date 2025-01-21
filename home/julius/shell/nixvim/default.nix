@@ -16,7 +16,7 @@
   programs.nixvim = {
     performance.byteCompileLua = {
       enable = true;
-      initLua = true;
+      initLua = false;
       configs = true;
       plugins = true;
       nvimRuntime = true;
