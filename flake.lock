@@ -605,11 +605,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1738674901,
-        "narHash": "sha256-EKXHcZNUIlPV7sdcNflM36mH8XtrFCyuJwGjMRhveZs=",
+        "lastModified": 1738856074,
+        "narHash": "sha256-EN0FkuL0Fz9P9pB6kg57PAzcP8O6eYjHpof1pQ51nZs=",
         "owner": "push-and-pray",
         "repo": "nixvim",
-        "rev": "ea7a13224839e96d4c421991a4a0a4b361024699",
+        "rev": "c01e57bc6a93aaea73af9673ff8606b65731d59e",
         "type": "github"
       },
       "original": {
