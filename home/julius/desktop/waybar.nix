@@ -46,7 +46,7 @@
           bar_delimiter = 0;
         };
         "mpris" = {
-          format = "{status_icon} {title} - {artist} {player_icon}";
+          format = "{status_icon} {title} - {artist}";
           player-icons = {
             default = "▶";
             spotify = "";
@@ -141,7 +141,6 @@
           format = "{icon} {capacity}%";
           format-charging = " {capacity}%";
           format-plugged = " {capacity}%";
-          format-alt = "{time} {icon}";
           format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
       }
