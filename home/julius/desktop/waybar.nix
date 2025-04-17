@@ -5,6 +5,8 @@
 }: {
   home.packages = with pkgs; [
     playerctl
+    brightnessctl
+    blueman
   ];
   programs.waybar = {
     enable = true;
@@ -16,6 +18,7 @@
         modules-left = [
           "hyprland/workspaces"
           "cava"
+          "pulseaudio"
           "mpris"
         ];
         modules-center = [
@@ -26,7 +29,6 @@
           "cpu"
           "memory"
           "temperature"
-          "pulseaudio"
           "backlight"
           "network"
           "bluetooth"
@@ -44,8 +46,7 @@
           bar_delimiter = 0;
         };
         "mpris" = {
-          format = "{player_icon} {title} - {artist}";
-          format-paused = "{status_icon} <i>{title} - {artist}</i>";
+          format = "{status_icon} {title} - {artist} {player_icon}";
           player-icons = {
             default = "▶";
             spotify = "";
@@ -55,7 +56,6 @@
             paused = "⏸";
             playing = "";
           };
-          max-length = 30;
         };
         "idle_inhibitor" = {
           format = "{icon}";
@@ -65,10 +65,11 @@
           };
         };
         "temperature" = {
-          hwmon-path = "/sys/class/hwmon/hwmon4/temp1_input";
-          critical-threshold = 83;
+          thermal-zone = 12;
+          critical-threshold = 85;
           format = "{icon} {temperatureC}°C";
-          format-icons = ["" "" ""];
+          format-icons = ["" "" "" "" "" "⚠"];
+          format-critical = "{icon}{icon} {temperatureC}°C";
           interval = 10;
         };
         clock = {
@@ -84,6 +85,64 @@
         memory = {
           min-length = 6;
           format = " {}%";
+        };
+        backlight = {
+          format = "{icon} {percent}%";
+          format-icons = ["" "" "" "" "" "" "" "" ""];
+          on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set 2%+";
+          on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl set 2%-";
+        };
+        network = {
+          format-wifi = "󰤨 Wi-Fi";
+          format-ethernet = "󱘖 Wired";
+          format-linked = "󱘖 {ifname} (No IP)";
+          format-disconnected = "󰤮 Off";
+          tooltip-format = "󱘖 {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}";
+        };
+        bluetooth = {
+          format = "";
+          format-connected = " {num_connections}";
+          tooltip-format = " {device_alias}";
+          tooltip-format-connected = "{device_enumerate}";
+          tooltip-format-enumerate-connected = " {device_alias}";
+          on-click = "${pkgs.blueman}/bin/blueman-manager";
+        };
+        pulseaudio = {
+          format = "{icon} {volume}%";
+          format-muted = " ";
+          on-click = "${pkgs.pavucontrol}/bin/pavucontrol -t 3";
+          tooltip-format = "{icon} {desc} // {volume}%";
+          scroll-step = 4;
+          format-icons = {
+            headphone = "";
+            hands-free = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = "";
+            default = ["" "" ""];
+          };
+        };
+
+        "pulseaudio#microphone" = {
+          format = "{format_source}";
+          format-source = " {volume}%";
+          format-source-muted = "";
+          on-click = "pavucontrol -t 4";
+          tooltip-format = "{format_source} {source_desc} // {source_volume}%";
+          scroll-step = 5;
+        };
+        battery = {
+          states = {
+            good = 95;
+            warning = 30;
+            critical = 20;
+          };
+          format = "{icon} {capacity}%";
+          format-charging = " {capacity}%";
+          format-plugged = " {capacity}%";
+          format-alt = "{time} {icon}";
+          format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
       }
     ];
