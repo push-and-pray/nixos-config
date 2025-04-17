@@ -74,9 +74,9 @@
     };
   };
 
+  programs.tofi.enable = true;
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.variables = ["--all"];
     systemd.enable = false;
     settings = {
       monitor = osConfig.programs.hyprland.monitors;
@@ -88,10 +88,9 @@
       ];
 
       bind = [
-        "SUPER,Return,exec,uwsm app -- kitty"
-        "SUPER,Space,exec,uwsm app -- rofi -show drun"
-        "SUPER, V, exec, uwsm app -- clipman pick -t rofi"
-        "SUPER, L, exec, uwsm app -- hyprlock"
+        "SUPER,Return,exec,kitty"
+        "SUPER,Space,exec,tofi-drun | xargs uwsm app --"
+        "SUPER, L, exec,hyprlock"
 
         ",XF86MonBrightnessDown,exec,brightnessctl set 20%-"
         ",XF86MonBrightnessUp,exec,brightnessctl set +20%"
@@ -143,21 +142,5 @@
     };
     extraConfig = ''
     '';
-  };
-
-  home.sessionVariables = {
-    GDK_BACKEND = "wayland,x11,*";
-    QT_QPA_PLATFORM = "wayland;xcb";
-    SDL_VIDEODRIVER = "wayland";
-    CLUTTER_BACKEND = "wayland";
-
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_SESSION_TYPE = "wayland";
-    XDG_SESSION_DESKTOP = "Hyprland";
-
-    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-    NIXOS_OZONE_WL = "1";
   };
 }
