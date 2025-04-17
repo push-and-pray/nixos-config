@@ -1,8 +1,8 @@
 {...}: {
   programs.git = {
     enable = true;
-    userEmail = "62392537+ketamin00@users.noreply.github.com";
-    userName = "ketamin00";
+    userEmail = "62392537+push-and-pray@users.noreply.github.com";
+    userName = "push-and-pray";
   };
 
   programs.lazygit.enable = true;

@@ -7,26 +7,17 @@
   home.packages = with pkgs; [
     brightnessctl
     playerctl
-    lxqt.lxqt-policykit
     wl-clipboard
   ];
 
   services.hyprpaper = {
     enable = true;
     package = pkgs.unstable.hyprpaper;
-    settings = {
-      preload = [
-        "/etc/nixos/res/wallpaper.png"
-      ];
-      wallpaper = [
-        ",/etc/nixos/res/wallpaper.png"
-      ];
-      splash = true;
-      ipc = false;
-    };
   };
+
   stylix.targets.hyprlock.enable = false;
   programs.hyprlock = {
+    package = pkgs.unstable.hyprlock;
     enable = true;
     settings = {
       general = {
@@ -53,6 +44,7 @@
 
   services.hypridle = {
     enable = true;
+    package = pkgs.unstable.hypridle;
     settings = {
       general = {
         lock_cmd = "pidof hyprlock || hyprlock";
@@ -85,6 +77,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.variables = ["--all"];
+    systemd.enable = false;
     settings = {
       monitor = osConfig.programs.hyprland.monitors;
       input = {
@@ -92,16 +85,13 @@
       };
 
       exec-once = [
-        "waybar"
-        "lxqt-policykit-agent"
-        "wl-paste -t text --watch clipman store --no-persist"
       ];
 
       bind = [
-        "SUPER,Return,exec,kitty"
-        "SUPER,Space,exec,rofi -show drun"
-        "SUPER, V, exec, clipman pick -t rofi"
-        "SUPER, L, exec, hyprlock"
+        "SUPER,Return,exec,uwsm app -- kitty"
+        "SUPER,Space,exec,uwsm app -- rofi -show drun"
+        "SUPER, V, exec, uwsm app -- clipman pick -t rofi"
+        "SUPER, L, exec, uwsm app -- hyprlock"
 
         ",XF86MonBrightnessDown,exec,brightnessctl set 20%-"
         ",XF86MonBrightnessUp,exec,brightnessctl set +20%"
