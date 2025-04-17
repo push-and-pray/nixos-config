@@ -3,6 +3,9 @@
   config,
   ...
 }: {
+  home.packages = with pkgs; [
+    playerctl
+  ];
   programs.waybar = {
     enable = true;
     package = pkgs.unstable.waybar;
@@ -13,6 +16,7 @@
         modules-left = [
           "hyprland/workspaces"
           "cava"
+          "mpris"
         ];
         modules-center = [
           "clock"
@@ -34,7 +38,24 @@
         "cava" = {
           hide_on_silence = false;
           framerate = 60;
+          bars = 10;
           format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+          sleep_timer = 5;
+          bar_delimiter = 0;
+        };
+        "mpris" = {
+          format = "{player_icon} {title} - {artist}";
+          format-paused = "{status_icon} <i>{title} - {artist}</i>";
+          player-icons = {
+            default = "▶";
+            spotify = "";
+            firefox = "";
+          };
+          status-icons = {
+            paused = "⏸";
+            playing = "";
+          };
+          max-length = 30;
         };
         "idle_inhibitor" = {
           format = "{icon}";
@@ -79,6 +100,7 @@
       ExecReload = "${pkgs.coreutils}/bin/kill -SIGUSR2 $MAINPID";
       Restart = "on-failure";
       KillMode = "mixed";
+      Slice = "app-graphical.slice";
     };
 
     Install = {WantedBy = ["graphical-session.target"];};
