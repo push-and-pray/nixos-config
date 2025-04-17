@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  system,
   ...
 }: {
   imports = [
@@ -15,7 +14,7 @@
     kubectl
     kubeseal
     fluxcd
-    inputs.nixvim.packages.${system}.default
+    inputs.nixvim.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   programs.kitty.enable = true;
