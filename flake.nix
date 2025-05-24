@@ -1,18 +1,18 @@
 {
-  description = "Ketamin00 Nix Config";
+  description = "push-and-pray Nix Config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
       url = "github:push-and-pray/nixvim";
     };
     stylix = {
-      url = "github:danth/stylix/release-24.11";
+      url = "github:danth/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -20,8 +20,6 @@
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
   outputs = {
@@ -81,15 +79,6 @@
           inputs.home-manager.nixosModules.home-manager
 
           ./hosts/hermes
-
-          inputs.vscode-server.nixosModules.default
-          ({
-            config,
-            pkgs,
-            ...
-          }: {
-            services.vscode-server.enable = true;
-          })
         ];
       };
     };

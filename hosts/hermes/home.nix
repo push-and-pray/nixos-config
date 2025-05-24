@@ -44,7 +44,7 @@
 
     zsh = {
       enable = true;
-      initExtra = ''
+      initContent = ''
         path+=('/mnt/c/Users/juliu/scoop/apps/win32yank/0.1.1')
       '';
       oh-my-zsh = {
