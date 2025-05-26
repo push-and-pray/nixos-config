@@ -11,7 +11,11 @@
     signal-desktop
     unstable.obsidian
     keepassxc
+    hyprshot
+    drawio
+    inkscape
   ];
 
   programs.firefox.enable = true;
+  programs.vscode.enable = true;
 }
