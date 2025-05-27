@@ -12,12 +12,10 @@
 
   services.hyprpaper = {
     enable = true;
-    package = pkgs.unstable.hyprpaper;
   };
 
   stylix.targets.hyprlock.enable = false;
   programs.hyprlock = {
-    package = pkgs.unstable.hyprlock;
     enable = true;
     settings = {
       general = {
@@ -44,7 +42,6 @@
 
   services.hypridle = {
     enable = true;
-    package = pkgs.unstable.hypridle;
     settings = {
       general = {
         lock_cmd = "pidof hyprlock || hyprlock";
@@ -78,6 +75,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
+    # Use packages from module
+    package = null;
+    portalPackage = null;
     settings = {
       monitor = osConfig.programs.hyprland.monitors;
       input = {
