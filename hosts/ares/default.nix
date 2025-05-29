@@ -31,9 +31,10 @@
   hardware = {
     graphics = {
       enable = true;
-      package = pkgs.unstable.mesa;
       enable32Bit = true;
-      package32 = pkgs.unstable.pkgsi686Linux.mesa;
+      extraPackages = with pkgs; [
+        nvidia-vaapi-driver
+      ];
     };
     nvidia = {
       modesetting.enable = true;
@@ -55,6 +56,7 @@
     LIBVA_DRIVER_NAME = "nvidia";
     GBM_BACKEND = "nvidia";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    NVD_BACKEND = "direct";
   };
 
   boot.loader = {
