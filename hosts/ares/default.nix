@@ -17,46 +17,29 @@
     };
   };
 
-  specialisation = {
-    nvidia-sync.configuration = {
-      hardware.nvidia.prime.sync.enable = lib.mkForce true;
-      hardware.nvidia.prime.offload = {
-        enable = lib.mkForce false;
-        enableOffloadCmd = lib.mkForce false;
-      };
-    };
-  };
-
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = ["modesetting" "nvidia"];
   hardware = {
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [
-        nvidia-vaapi-driver
-      ];
     };
     nvidia = {
       modesetting.enable = true;
+      powerManagement = {
+        enable = true;
+        finegrained = true;
+      };
       open = true;
       prime = {
         offload = {
           enable = true;
           enableOffloadCmd = true;
         };
-        sync.enable = false;
         intelBusId = "PCI:00:02:0";
         nvidiaBusId = "PCI:01:00:0";
       };
     };
     enableRedistributableFirmware = true;
-  };
-
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "nvidia";
-    GBM_BACKEND = "nvidia";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    NVD_BACKEND = "direct";
   };
 
   boot.loader = {
