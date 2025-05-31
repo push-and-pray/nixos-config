@@ -71,13 +71,10 @@
     };
   };
 
-  programs.tofi.enable = true;
+  programs.fuzzel.enable = true;
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
-    # Use packages from module
-    package = null;
-    portalPackage = null;
     settings = {
       monitor = osConfig.programs.hyprland.monitors;
       input = {
@@ -89,7 +86,7 @@
 
       bind = [
         "SUPER,Return,exec,kitty"
-        "SUPER,Space,exec,tofi-drun | xargs uwsm app --"
+        "SUPER,Space,exec,${pkgs.fuzzel}/bin/fuzzel --launch-prefix='uwsm app --'"
         "SUPER, L, exec,hyprlock"
 
         ",XF86MonBrightnessDown,exec,brightnessctl set 20%-"

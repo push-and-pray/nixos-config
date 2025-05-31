@@ -3,12 +3,11 @@
     ./hyprland.nix
     ./waybar.nix
     ./mako.nix
-    ./rofi.nix
   ];
 
   home.packages = with pkgs; [
     spotify
-    signal-desktop
+    signal-desktop-bin
     unstable.obsidian
     keepassxc
     hyprshot
