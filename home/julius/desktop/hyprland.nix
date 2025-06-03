@@ -9,9 +9,42 @@
     playerctl
     wl-clipboard
   ];
+  services = {
+    hyprpaper = {
+      enable = true;
+    };
+    hyprpolkitagent.enable = true;
 
-  services.hyprpaper = {
-    enable = true;
+    hypridle = {
+      enable = true;
+      settings = {
+        general = {
+          lock_cmd = "pidof hyprlock || hyprlock";
+          before_sleep_cmd = "loginctl lock-session";
+          after_sleep_cmd = "hyprctl dispatch dpms on";
+        };
+        listener = [
+          {
+            timeout = 100;
+            on-timeout = "brightnessctl -s set 2%";
+            on-resume = "brightnessctl -r";
+          }
+          {
+            timeout = 230;
+            on-timeout = "notify-send 'Locking screen soon...'";
+          }
+          {
+            timeout = 240;
+            on-timeout = "loginctl lock-session";
+          }
+          {
+            timeout = 300;
+            on-timeout = "hyprctl dispatch dpms off";
+            on-resume = "hyprctl dispatch dpms on";
+          }
+        ];
+      };
+    };
   };
 
   stylix.targets.hyprlock.enable = false;
@@ -35,37 +68,6 @@
           size = "400, 100";
           position = "0, -80";
           placeholder_text = "Password...";
-        }
-      ];
-    };
-  };
-
-  services.hypridle = {
-    enable = true;
-    settings = {
-      general = {
-        lock_cmd = "pidof hyprlock || hyprlock";
-        before_sleep_cmd = "loginctl lock-session";
-        after_sleep_cmd = "hyprctl dispatch dpms on";
-      };
-      listener = [
-        {
-          timeout = 100;
-          on-timeout = "brightnessctl -s set 2%";
-          on-resume = "brightnessctl -r";
-        }
-        {
-          timeout = 230;
-          on-timeout = "notify-send 'Locking screen soon...'";
-        }
-        {
-          timeout = 240;
-          on-timeout = "loginctl lock-session";
-        }
-        {
-          timeout = 300;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
         }
       ];
     };
