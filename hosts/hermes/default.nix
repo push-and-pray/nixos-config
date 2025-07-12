@@ -6,6 +6,7 @@
   ...
 }: {
   time.timeZone = "Europe/Copenhagen";
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
   networking.hostName = "${hostname}";
 
@@ -83,6 +84,7 @@
   };
 
   nixpkgs.overlays = [outputs.overlays.unstable-packages];
+  nixpkgs.config.allowUnfree = true;
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";

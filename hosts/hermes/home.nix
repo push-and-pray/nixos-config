@@ -16,6 +16,8 @@
     homeDirectory = "/home/julius";
 
     packages = with pkgs; [
+      hcloud
+      talosctl
       jq
       wget
       killall
