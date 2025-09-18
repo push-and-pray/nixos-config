@@ -14,6 +14,7 @@
     kubectl
     kubeseal
     fluxcd
+    teleport
     inputs.nixvim.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 

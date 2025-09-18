@@ -33,6 +33,7 @@
     enable = true;
     defaultUser = "julius";
     useWindowsDriver = true;
+    wslConf.network.generateHosts = false;
   };
 
   hardware.graphics = {

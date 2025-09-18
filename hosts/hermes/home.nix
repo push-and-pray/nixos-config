@@ -27,6 +27,7 @@
       zip
       kubectl
       kubernetes-helm
+      teleport
       inputs.nixvim.packages."x86_64-linux".default
     ];
   };
