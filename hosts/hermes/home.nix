@@ -9,7 +9,7 @@
   programs.nix-index-database.comma.enable = true;
   programs.nix-index.enable = true;
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.05";
 
   home = {
     username = "julius";
@@ -53,9 +53,6 @@
 
     zsh = {
       enable = true;
-      initContent = ''
-        path+=('/mnt/c/Users/juliu/scoop/apps/win32yank/0.1.1')
-      '';
       oh-my-zsh = {
         enable = true;
         theme = "robbyrussell";

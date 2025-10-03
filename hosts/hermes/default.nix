@@ -10,7 +10,6 @@
   networking.hostName = "${hostname}";
 
   programs.zsh.enable = true;
-  programs.nix-ld.enable = true;
 
   users.users.julius = {
     isNormalUser = true;
@@ -26,27 +25,15 @@
     users.julius = import ./home.nix;
   };
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.05";
 
   wsl = {
     enable = true;
     defaultUser = "julius";
-    useWindowsDriver = true;
-    wslConf.network.generateHosts = false;
   };
 
-  hardware.graphics = {
-    enable = true;
-
-    extraPackages = with pkgs; [
-      mesa
-      libvdpau-va-gl
-      vaapiVdpau
-    ];
-  };
 
   virtualisation.docker = {
-    package = pkgs.unstable.docker;
     enable = true;
     enableOnBoot = true;
     autoPrune.enable = true;
@@ -69,11 +56,6 @@
       };
     };
 
-    nixPath = [
-      "nixpkgs=${inputs.nixpkgs.outPath}"
-      "nixos-config=/etc/nixos/configuration.nix"
-      "/nix/var/nix/profiles/per-user/root/channels"
-    ];
 
     extraOptions = ''experimental-features = nix-command flakes'';
 
