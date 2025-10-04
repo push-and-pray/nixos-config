@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-    ./clipman.nix
     ./git.nix
     ./zsh.nix
     ./direnv.nix

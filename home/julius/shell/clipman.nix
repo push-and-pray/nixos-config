@@ -1,5 +1,0 @@
-{...}: {
-  services.clipman = {
-    enable = true;
-  };
-}
