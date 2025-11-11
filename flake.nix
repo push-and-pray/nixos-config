@@ -24,6 +24,7 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-facter-modules.url = "github:nix-community/nixos-facter-modules";
   };
 
   outputs = {
@@ -55,6 +56,8 @@
         };
         modules = [
           inputs.stylix.nixosModules.stylix
+          inputs.nixos-facter-modules.nixosModules.facter
+          {config.facter.reportPath = ./hosts/ares/facter.json;}
           ./system
           ./hosts/ares
         ];
