@@ -9,6 +9,13 @@
     ./mako.nix
   ];
 
+  services.gammastep = {
+    enable = true;
+    provider = "manual";
+    latitude = 55.68;
+    longitude = 12.57;
+  };
+
   home.packages = with pkgs; [
     spotify
     signal-desktop-bin
