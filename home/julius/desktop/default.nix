@@ -25,8 +25,17 @@
     drawio
     inkscape
   ];
+  programs.firefox = {
+    enable = true;
+    profiles.default.extensions.force = true;
+  };
 
-  programs.firefox.enable = true;
+  stylix.targets.firefox = {
+    enable = true;
+    colorTheme.enable = true;
+    profileNames = ["default"];
+  };
+
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = false;
