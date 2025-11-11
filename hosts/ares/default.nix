@@ -16,6 +16,8 @@
     loader.efi.canTouchEfiVariables = true;
   };
 
+  programs.hyprland.monitors = [",preferred,auto,1.5"];
+
   home-manager = {
     extraSpecialArgs = {inherit inputs outputs;};
     users = {
