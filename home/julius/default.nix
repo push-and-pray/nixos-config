@@ -34,6 +34,4 @@
   services.network-manager-applet.enable = osConfig.networking.networkmanager.enable;
   services.udiskie.enable = osConfig.services.udisks2.enable;
   services.clipman.enable = true;
-
-  home.stateVersion = "23.11";
 }

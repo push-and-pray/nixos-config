@@ -16,12 +16,15 @@
     loader.efi.canTouchEfiVariables = true;
   };
 
-  programs.hyprland.monitors = [",preferred,auto,1.5"];
+  programs.hyprland.monitors = [",preferred,auto,1.6"];
 
   home-manager = {
     extraSpecialArgs = {inherit inputs outputs;};
     users = {
-      julius = import ../../home/julius;
+      julius = {
+        imports = [../../home/julius];
+        home.stateVersion = "25.05";
+      };
     };
   };
 
