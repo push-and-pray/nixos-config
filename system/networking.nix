@@ -11,5 +11,7 @@
   hardware.bluetooth.enable = lib.mkDefault true;
   services.blueman.enable = config.hardware.bluetooth.enable;
 
-  services.twingate.enable = lib.mkDefault true;
+  services.twingate.enable = true;
+
+  networking.firewall.enable = false;
 }
