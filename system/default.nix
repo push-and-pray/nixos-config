@@ -11,7 +11,6 @@
     ./users.nix
     ./greetd.nix
     ./hyprland.nix
-    ./zram.nix
   ];
 
   virtualisation.docker.enable = true;
