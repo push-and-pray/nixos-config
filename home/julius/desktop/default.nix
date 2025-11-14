@@ -18,7 +18,7 @@
 
   home.packages = with pkgs; [
     spotify
-    signal-desktop-bin
+    unstable.signal-desktop
     unstable.obsidian
     keepassxc
     hyprshot
