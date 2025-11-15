@@ -1,4 +1,4 @@
-{...}: {
+_: {
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/981e2aed-b34b-436a-9bf8-8eba9e3e54b0";
     fsType = "ext4";

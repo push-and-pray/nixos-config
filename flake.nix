@@ -62,17 +62,6 @@
           ./hosts/ares
         ];
       };
-      zeus = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
-          hostname = "zeus";
-        };
-        modules = [
-          inputs.stylix.nixosModules.stylix
-          ./system
-          ./hosts/zeus
-        ];
-      };
 
       hermes = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
