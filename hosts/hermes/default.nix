@@ -10,6 +10,7 @@
   networking.hostName = "${hostname}";
 
   programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
 
   users.users.julius = {
     isNormalUser = true;
