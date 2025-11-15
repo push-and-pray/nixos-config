@@ -16,7 +16,15 @@
     teleport
     k9s
     inputs.nixvim.packages.${pkgs.stdenv.hostPlatform.system}.default
+    curl
+    wget
+    dig
   ];
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    SUDO_EDITOR = "nvim";
+  };
 
   programs.kitty.enable = true;
 }
