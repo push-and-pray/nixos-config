@@ -19,6 +19,7 @@
     curl
     wget
     dig
+    kubelogin-oidc
   ];
 
   home.sessionVariables = {
