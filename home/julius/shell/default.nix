@@ -26,11 +26,5 @@
     SUDO_EDITOR = "nvim";
   };
 
-  programs.keychain = {
-    enable = true;
-    enableZshIntegration = true;
-    keys = ["id_ed25519"];
-  };
-
   programs.kitty.enable = true;
 }

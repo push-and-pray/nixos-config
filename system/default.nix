@@ -18,6 +18,9 @@
   users.extraGroups.docker.members = ["julius"];
   services.udisks2.enable = lib.mkDefault true;
 
+  services.gnome.gnome-keyring.enable = true;
+  programs.seahorse.enable = true;
+
   environment.systemPackages = with pkgs; [
     neovim
   ];
