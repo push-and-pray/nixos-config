@@ -13,6 +13,7 @@
     # nixos-facter mislabels my ethernet device
     extraModulePackages = [pkgs.linuxPackages.yt6801];
     kernelModules = ["kvm-amd" "yt6801"];
+    blacklistedKernelModules = ["r8169"];
     loader.efi.canTouchEfiVariables = true;
   };
 
@@ -31,7 +32,6 @@
   services = {
     fstrim.enable = true;
     fwupd.enable = true;
-    thermald.enable = true;
   };
 
   system.stateVersion = "25.05";
