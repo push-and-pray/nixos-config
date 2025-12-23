@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,7 +31,6 @@
   outputs = {
     self,
     nixpkgs,
-    home-manager,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -57,6 +57,7 @@
         modules = [
           inputs.stylix.nixosModules.stylix
           inputs.nixos-facter-modules.nixosModules.facter
+          inputs.determinate.nixosModules.default
           {config.facter.reportPath = ./hosts/ares/facter.json;}
           ./system
           ./hosts/ares
