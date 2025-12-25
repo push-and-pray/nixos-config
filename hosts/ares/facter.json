@@ -2,10 +2,6 @@
   "version": 1,
   "system": "x86_64-linux",
   "virtualisation": "none",
-  "uefi": {
-    "supported": true,
-    "platform_size": 64
-  },
   "hardware": {
     "bios": {
       "apm_info": {
@@ -27,8 +23,8 @@
     },
     "bluetooth": [
       {
-        "index": 69,
-        "attached_to": 73,
+        "index": 70,
+        "attached_to": 74,
         "class_list": [
           "usb",
           "bluetooth"
@@ -129,8 +125,8 @@
         "module_alias": "usb:v13D3p3585d0100dcEFdsc02dp01icE0isc01ip01in01"
       },
       {
-        "index": 76,
-        "attached_to": 73,
+        "index": 77,
+        "attached_to": 74,
         "class_list": [
           "usb",
           "bluetooth"
@@ -231,8 +227,8 @@
         "module_alias": "usb:v13D3p3585d0100dcEFdsc02dp01icE0isc01ip01in02"
       },
       {
-        "index": 80,
-        "attached_to": 73,
+        "index": 81,
+        "attached_to": 74,
         "class_list": [
           "usb",
           "bluetooth"
@@ -1636,8 +1632,8 @@
     ],
     "camera": [
       {
-        "index": 68,
-        "attached_to": 65,
+        "index": 69,
+        "attached_to": 66,
         "class_list": [
           "camera",
           "usb"
@@ -1738,8 +1734,8 @@
         "module_alias": "usb:v2B7EpC906d0004dcEFdsc02dp01ic0Eisc01ip01in02"
       },
       {
-        "index": 70,
-        "attached_to": 65,
+        "index": 71,
+        "attached_to": 66,
         "class_list": [
           "camera",
           "usb"
@@ -1840,8 +1836,8 @@
         "module_alias": "usb:v2B7EpC906d0004dcEFdsc02dp01ic0Eisc01ip01in00"
       },
       {
-        "index": 75,
-        "attached_to": 65,
+        "index": 76,
+        "attached_to": 66,
         "class_list": [
           "camera",
           "usb"
@@ -1942,8 +1938,8 @@
         "module_alias": "usb:v2B7EpC906d0004dcEFdsc02dp01ic0Eisc02ip01in03"
       },
       {
-        "index": 78,
-        "attached_to": 65,
+        "index": 79,
+        "attached_to": 66,
         "class_list": [
           "camera",
           "usb"
@@ -2293,7 +2289,6 @@
           "/dev/disk/by-path/pci-0000:04:00.0-nvme-1",
           "/dev/nvme0n1"
         ],
-        "rom_id": "0x80",
         "resources": [
           {
             "type": "disk_geo",
@@ -2317,6 +2312,39 @@
         ],
         "driver_modules": [
           "nvme"
+        ]
+      },
+      {
+        "index": 63,
+        "attached_to": 0,
+        "class_list": [
+          "disk",
+          "block_device"
+        ],
+        "base_class": {
+          "hex": "0106",
+          "name": "Mass Storage Device",
+          "value": 262
+        },
+        "sub_class": {
+          "hex": "0000",
+          "name": "Disk",
+          "value": 0
+        },
+        "model": "Disk",
+        "sysfs_id": "/class/block/zram0",
+        "unix_device_names": [
+          "/dev/disk/by-label/zram0",
+          "/dev/disk/by-uuid/9fc7ea21-5307-47fb-bd10-92e61425e335",
+          "/dev/zram0"
+        ],
+        "resources": [
+          {
+            "type": "size",
+            "unit": "sectors",
+            "value_1": 4012160,
+            "value_2": 4096
+          }
         ]
       }
     ],
@@ -2406,7 +2434,7 @@
     ],
     "hub": [
       {
-        "index": 63,
+        "index": 64,
         "attached_to": 37,
         "class_list": [
           "usb",
@@ -2428,7 +2456,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.12.57 xhci-hcd",
+          "name": "Linux 6.12.59 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -2442,7 +2470,7 @@
           "value": 0
         },
         "serial": "0000:67:00.3",
-        "model": "Linux 6.12.57 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.12.59 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.3/0000:67:00.3/usb6/6-0:1.0",
         "sysfs_bus_id": "6-0:1.0",
         "detail": {
@@ -2483,8 +2511,8 @@
         "module_alias": "usb:v1D6Bp0003d0612dc09dsc00dp03ic09isc00ip00in00"
       },
       {
-        "index": 64,
-        "attached_to": 79,
+        "index": 65,
+        "attached_to": 80,
         "class_list": [
           "usb",
           "hub"
@@ -2559,7 +2587,7 @@
         "module_alias": "usb:v05E3p0620d2311dc09dsc00dp03ic09isc00ip00in00"
       },
       {
-        "index": 65,
+        "index": 66,
         "attached_to": 27,
         "class_list": [
           "usb",
@@ -2581,7 +2609,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.12.57 xhci-hcd",
+          "name": "Linux 6.12.59 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -2595,7 +2623,7 @@
           "value": 0
         },
         "serial": "0000:65:00.4",
-        "model": "Linux 6.12.57 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.12.59 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.1/0000:65:00.4/usb3/3-0:1.0",
         "sysfs_bus_id": "3-0:1.0",
         "resources": [
@@ -2646,7 +2674,7 @@
         "module_alias": "usb:v1D6Bp0002d0612dc09dsc00dp01ic09isc00ip00in00"
       },
       {
-        "index": 67,
+        "index": 68,
         "attached_to": 55,
         "class_list": [
           "usb",
@@ -2668,7 +2696,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.12.57 xhci-hcd",
+          "name": "Linux 6.12.59 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -2682,7 +2710,7 @@
           "value": 0
         },
         "serial": "0000:67:00.4",
-        "model": "Linux 6.12.57 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.12.59 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.3/0000:67:00.4/usb7/7-0:1.0",
         "sysfs_bus_id": "7-0:1.0",
         "resources": [
@@ -2733,7 +2761,7 @@
         "module_alias": "usb:v1D6Bp0002d0612dc09dsc00dp01ic09isc00ip00in00"
       },
       {
-        "index": 71,
+        "index": 72,
         "attached_to": 27,
         "class_list": [
           "usb",
@@ -2755,7 +2783,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.12.57 xhci-hcd",
+          "name": "Linux 6.12.59 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -2769,7 +2797,7 @@
           "value": 0
         },
         "serial": "0000:65:00.4",
-        "model": "Linux 6.12.57 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.12.59 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.1/0000:65:00.4/usb4/4-0:1.0",
         "sysfs_bus_id": "4-0:1.0",
         "detail": {
@@ -2810,7 +2838,7 @@
         "module_alias": "usb:v1D6Bp0003d0612dc09dsc00dp03ic09isc00ip00in00"
       },
       {
-        "index": 72,
+        "index": 73,
         "attached_to": 55,
         "class_list": [
           "usb",
@@ -2832,7 +2860,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.12.57 xhci-hcd",
+          "name": "Linux 6.12.59 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -2846,7 +2874,7 @@
           "value": 0
         },
         "serial": "0000:67:00.4",
-        "model": "Linux 6.12.57 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.12.59 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.3/0000:67:00.4/usb8/8-0:1.0",
         "sysfs_bus_id": "8-0:1.0",
         "detail": {
@@ -2887,7 +2915,7 @@
         "module_alias": "usb:v1D6Bp0003d0612dc09dsc00dp03ic09isc00ip00in00"
       },
       {
-        "index": 73,
+        "index": 74,
         "attached_to": 50,
         "class_list": [
           "usb",
@@ -2909,7 +2937,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.12.57 xhci-hcd",
+          "name": "Linux 6.12.59 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -2923,7 +2951,7 @@
           "value": 0
         },
         "serial": "0000:65:00.3",
-        "model": "Linux 6.12.57 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.12.59 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.1/0000:65:00.3/usb1/1-0:1.0",
         "sysfs_bus_id": "1-0:1.0",
         "resources": [
@@ -2974,7 +3002,7 @@
         "module_alias": "usb:v1D6Bp0002d0612dc09dsc00dp01ic09isc00ip00in00"
       },
       {
-        "index": 74,
+        "index": 75,
         "attached_to": 37,
         "class_list": [
           "usb",
@@ -2996,7 +3024,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.12.57 xhci-hcd",
+          "name": "Linux 6.12.59 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -3010,7 +3038,7 @@
           "value": 0
         },
         "serial": "0000:67:00.3",
-        "model": "Linux 6.12.57 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.12.59 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.3/0000:67:00.3/usb5/5-0:1.0",
         "sysfs_bus_id": "5-0:1.0",
         "resources": [
@@ -3061,8 +3089,8 @@
         "module_alias": "usb:v1D6Bp0002d0612dc09dsc00dp01ic09isc00ip00in00"
       },
       {
-        "index": 77,
-        "attached_to": 73,
+        "index": 78,
+        "attached_to": 74,
         "class_list": [
           "usb",
           "hub"
@@ -3147,7 +3175,7 @@
         "module_alias": "usb:v05E3p0610d2311dc09dsc00dp02ic09isc00ip02in00"
       },
       {
-        "index": 79,
+        "index": 80,
         "attached_to": 50,
         "class_list": [
           "usb",
@@ -3169,7 +3197,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.12.57 xhci-hcd",
+          "name": "Linux 6.12.59 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -3183,7 +3211,7 @@
           "value": 0
         },
         "serial": "0000:65:00.3",
-        "model": "Linux 6.12.57 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.12.59 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.1/0000:65:00.3/usb2/2-0:1.0",
         "sysfs_bus_id": "2-0:1.0",
         "detail": {
@@ -3358,7 +3386,7 @@
     ],
     "mouse": [
       {
-        "index": 84,
+        "index": 89,
         "attached_to": 0,
         "bus_type": {
           "hex": "0081",
@@ -3383,9 +3411,9 @@
           "hex": "0255",
           "value": 597
         },
-        "sysfs_id": "/devices/platform/AMDI0010:01/i2c-1/i2c-UNIW0001:00/0018:093A:0255.0001/input/input11",
+        "sysfs_id": "/devices/platform/AMDI0010:01/i2c-1/i2c-UNIW0001:00/0018:093A:0255.0001/input/input8",
         "unix_device_names": [
-          "/dev/input/event9",
+          "/dev/input/event6",
           "/dev/input/ + handler"
         ]
       }
@@ -3601,29 +3629,89 @@
         "sysfs_id": "/devices/pci0000:00/0000:00:01.3/0000:01:00.0",
         "sysfs_bus_id": "0000:01:00.0",
         "sysfs_iommu_group_id": 14,
+        "unix_device_names": [
+          "eno1"
+        ],
         "resources": [
+          {
+            "type": "hwaddr",
+            "address": 98
+          },
           {
             "type": "io",
             "base": 61440,
             "range": 256,
             "enabled": true,
             "access": "read_write"
+          },
+          {
+            "type": "phwaddr",
+            "address": 98
           }
         ],
         "detail": {
           "function": 0,
-          "command": 7,
+          "command": 1031,
           "header_type": 0,
           "secondary_bus": 0,
           "prog_if": 0
         },
+        "driver": "yt6801",
+        "driver_module": "yt6801",
+        "drivers": [
+          "yt6801"
+        ],
+        "driver_modules": [
+          "yt6801"
+        ],
         "module_alias": "pci:v00001F0Ad00006801sv00001D05sd00007011bc02sc00i00",
         "label": "Realtek"
       }
     ],
     "network_interface": [
       {
-        "index": 81,
+        "index": 84,
+        "attached_to": 33,
+        "class_list": [
+          "network_interface"
+        ],
+        "base_class": {
+          "hex": "0107",
+          "name": "Network Interface",
+          "value": 263
+        },
+        "sub_class": {
+          "hex": "0001",
+          "name": "Ethernet",
+          "value": 1
+        },
+        "model": "Ethernet network interface",
+        "sysfs_id": "/class/net/eno1",
+        "sysfs_device_link": "/devices/pci0000:00/0000:00:01.3/0000:01:00.0",
+        "unix_device_names": [
+          "eno1"
+        ],
+        "resources": [
+          {
+            "type": "hwaddr",
+            "address": 98
+          },
+          {
+            "type": "phwaddr",
+            "address": 98
+          }
+        ],
+        "driver": "yt6801",
+        "driver_module": "yt6801",
+        "drivers": [
+          "yt6801"
+        ],
+        "driver_modules": [
+          "yt6801"
+        ]
+      },
+      {
+        "index": 85,
         "attached_to": 0,
         "class_list": [
           "network_interface"
@@ -3645,7 +3733,7 @@
         ]
       },
       {
-        "index": 83,
+        "index": 86,
         "attached_to": 20,
         "class_list": [
           "network_interface"
@@ -4318,8 +4406,8 @@
     },
     "usb": [
       {
-        "index": 66,
-        "attached_to": 65,
+        "index": 67,
+        "attached_to": 66,
         "class_list": [
           "usb",
           "unknown"

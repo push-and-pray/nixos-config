@@ -25,7 +25,6 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-facter-modules.url = "github:nix-community/nixos-facter-modules";
   };
 
   outputs = {
@@ -45,6 +44,17 @@
   in {
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
+    devShells = forAllSystems (system: let
+      pkgs = import nixpkgs {inherit system;};
+    in {
+      default = pkgs.mkShell {
+        packages = with pkgs; [
+          nixos-facter
+          nix-output-monitor
+        ];
+      };
+    });
+
     overlays = import ./overlays {inherit inputs;};
 
     nixosConfigurations = {
@@ -55,9 +65,8 @@
         };
         modules = [
           inputs.stylix.nixosModules.stylix
-          inputs.nixos-facter-modules.nixosModules.facter
           inputs.determinate.nixosModules.default
-          {config.facter.reportPath = ./hosts/ares/facter.json;}
+          {hardware.facter.reportPath = ./hosts/ares/facter.json;}
           ./system
           ./hosts/ares
         ];
