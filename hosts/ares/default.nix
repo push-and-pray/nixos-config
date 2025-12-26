@@ -3,6 +3,7 @@
   outputs,
   pkgs,
   lib,
+  config,
   ...
 }: {
   imports = [
@@ -11,10 +12,9 @@
   ];
   boot = {
     # nixos-facter mislabels my ethernet device
-    extraModulePackages = [pkgs.linuxPackages.yt6801];
-    kernelModules = ["kvm-amd" "yt6801"];
+    extraModulePackages = [config.boot.kernelPackages.yt6801];
+    kernelModules = ["yt6801"];
     blacklistedKernelModules = ["r8169"];
-    loader.efi.canTouchEfiVariables = true;
   };
 
   programs.hyprland.monitors = [",preferred,auto,1.6"];
