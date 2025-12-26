@@ -4,16 +4,17 @@
   hostname,
   ...
 }: {
-  networking.hostName = hostname;
-  networking.networkmanager.enable = true;
-  services.resolved.enable = true;
+  networking = {
+    hostName = hostname;
+    networkmanager.enable = true;
+    dhcpcd.enable = false;
+  };
 
-  networking.dhcpcd.enable = false;
+  services = {
+    blueman.enable = config.hardware.bluetooth.enable;
+    resolved.enable = true;
+    twingate.enable = true;
+  };
 
   hardware.bluetooth.enable = lib.mkDefault true;
-  services.blueman.enable = config.hardware.bluetooth.enable;
-
-  services.twingate.enable = true;
-
-  networking.firewall.enable = false;
 }
