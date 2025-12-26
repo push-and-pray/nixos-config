@@ -17,6 +17,9 @@
     blacklistedKernelModules = ["r8169"];
   };
 
+  virtualisation.docker.enableOnBoot = false;
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   programs.hyprland.monitors = [",preferred,auto,1.6"];
 
   home-manager = {
